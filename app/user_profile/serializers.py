@@ -26,10 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
 
         return user
 
-class PostSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Post
-        fields = ['id','created', 'title', 'code', 'linenos', 'language', 'style','owner']
+
 
 
 class AuthTokenSerializer(serializers.Serializer):
