@@ -27,3 +27,6 @@ class UserAdmin(BaseUserAdmin):
 admin.site.register(models.User,UserAdmin)
 admin.site.register(models.Post)
 admin.site.register(models.Project)
+admin.site.register(models.ProjectType)
+admin.site.register(models.MachineLearningModel)
+admin.site.register(models.MachineLearningModelType)

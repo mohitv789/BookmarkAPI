@@ -23,4 +23,5 @@ urlpatterns = [
     path('api/',include('user_profile.urls')),
     path('function/1/',include('post.urls')),
     path('function/2/',include('project.urls')),
+    path('function/3/',include('datascience.urls')),
 ]
