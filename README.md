@@ -28,6 +28,7 @@ THINK ON:
 4) Tagging
 5) Segregating Viewsets
 6) Models and its features
+7) Slug
 
 
 Apps :

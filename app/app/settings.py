@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "core",
     "user_profile",
     "post",
+    "project",
 ]
 AUTH_USER_MODEL = 'core.User'
 MIDDLEWARE = [
