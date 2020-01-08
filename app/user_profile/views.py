@@ -2,11 +2,12 @@ from rest_framework import generics,authentication,permissions
 from user_profile.serializers import UserSerializer,AuthTokenSerializer
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
-
+from rest_framework.permissions import IsAuthenticated , AllowAny
 
 class CreateUserView(generics.CreateAPIView):
     """Creates a new user in the system"""
     serializer_class = UserSerializer
+    permission_classes = (AllowAny,)
 
 
 class CreateTokenView(ObtainAuthToken):

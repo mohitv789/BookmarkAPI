@@ -74,12 +74,12 @@ class Project(models.Model):
     language = models.CharField(choices=LANGUAGE_CHOICES, default='python', max_length=100)
     style = models.CharField(choices=STYLE_CHOICES, default='friendly', max_length=100)
     highlighted = models.TextField()
-    tag = models.ForeignKey(ProjectType, on_delete=models.CASCADE)
+    type= models.ForeignKey(ProjectType, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['created']
     def save(self, *args, **kwargs):
-
+        self.started_by = self.request.user
         lexer = get_lexer_by_name(self.language)
         linenos = 'table' if self.linenos else False
         options = {'title': self.title} if self.title else {}
@@ -89,6 +89,10 @@ class Project(models.Model):
         super(Project, self).save(*args, **kwargs)
     def __str__(self):
         return self.title
+
+class Article(models.Model):
+    """Article model here which will be reviewed content / project / other"""
+
 
 class MachineLearningModelType(models.Model):
     """Tag to be used for a ml-model"""

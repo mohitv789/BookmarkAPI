@@ -16,13 +16,11 @@ class ProjectViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.ProjectSerializer
     authentication_classes=(TokenAuthentication,)
     permission_classes=(IsAuthenticated,)
-
+    
     def get_queryset(self):
-        """Return objecs for the current authenticated user only"""
-        """From now filtering is implemented"""
-        started_by = self.request.query_params.get("started_by")
         queryset = self.queryset
-        return queryset.filter(started_by=self.request.user)
+        return queryset
 
     def perform_create(self, serializer):
-        serializer.save(started_by=self.request.user)
+        serializer.started_by = self.request.user
+        serializer.save()

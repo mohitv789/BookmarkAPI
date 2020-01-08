@@ -25,10 +25,9 @@ class PostViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         """Return objecs for the current authenticated user only"""
         """From now filtering is implemented"""
-        posted_by = self.request.query_params.get("posted_by")
         queryset = self.queryset
-        return queryset.filter(posted_by=self.request.user)
+        return queryset
 
     def perform_create(self,serializer):
         """Create a new recipe object"""
-        serializer.save(user=self.request.user)
+        serializer.save(posted_by=self.request.user)
