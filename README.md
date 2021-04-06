@@ -58,3 +58,6 @@ Project Model is used for getting user project details and for content for datas
 Datascience Model is used for listing out datascience projects(filtered based on tag of full stack or datascience). Provision for injection of admin side content is needed. Link to user projects on this page.
 
 Fullstack Model is used for listing out fullstack projects(filtered based on tag of full stack or datascience). Provision for injection of admin side content is needed. Link to user projects on this page.
+
+
+I need to update project for Django >3. Porting pending.
